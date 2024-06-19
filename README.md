@@ -11,6 +11,7 @@
 3. SolarWinds Serv-U FTP目录遍历漏洞(CVE-2024-28995)（[SolarWinds_Serv-U_FTP_Fileread.yaml](./yaml/SolarWinds_Serv-U_FTP_Fileread.yaml)）
 4. 用友NC isAgentLimit 接口 SQL注入漏洞（[Yonyou_NC_isAgentLimit_SQL_injected.yaml](./yaml/Yonyou_NC_isAgentLimit_SQL_injected.yaml)）
 5. FastAdmin 开源后台框架 任意文件读取漏洞（[FastAdmin_lang_Fileread.yaml](./yaml/FastAdmin_lang_Fileread.yaml)）
+6. 悦库企业网盘 user/login/.html SQL注入漏洞 （[Ydisk_userloginhtml_SQL_injected.yaml](./yaml/Ydisk_userloginhtml_SQL_injected.yaml)）
 
  ## 欢迎关注微信公众号：小明信安
 
