@@ -15,6 +15,7 @@
 7. 致远互联FE协作办公平台 ncsubjass SQL注入（[Seeyon_FE_OA_ncsubjass_SQL_injected.yaml](./yaml/Seeyon_FE_OA_ncsubjass_SQL_injected.yaml)）
 8. 锐捷上网行为管理系统 static_convert.php 远程命令执行漏洞（[Ruijie_RG-UAC_static_convert_RCE.yaml](./yaml/Ruijie_RG-UAC_static_convert_RCE.yaml)）
 9. Zyxel-NAS设备 setCookie 远程命令执行漏洞（[Zyxel-NAS_setCookie_RCE.yaml](./yaml/Zyxel-NAS_setCookie_RCE.yaml)）
+10. APP分发签名系统index-uplog.php 任意文件上传漏洞（[APP_Distribution_Signature_index-uplog_FileUpload.yaml](./yaml/APP_Distribution_Signature_index-uplog_FileUpload.yaml)）
 
  ## 欢迎关注微信公众号：小明信安
 
