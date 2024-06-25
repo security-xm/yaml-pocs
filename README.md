@@ -16,7 +16,7 @@
 8. 锐捷上网行为管理系统 static_convert.php 远程命令执行漏洞（[Ruijie_RG-UAC_static_convert_RCE.yaml](./yaml/Ruijie_RG-UAC_static_convert_RCE.yaml)）
 9. Zyxel-NAS设备 setCookie 远程命令执行漏洞（[Zyxel-NAS_setCookie_RCE.yaml](./yaml/Zyxel-NAS_setCookie_RCE.yaml)）
 10. APP分发签名系统index-uplog.php 任意文件上传漏洞（[APP_Distribution_Signature_index-uplog_FileUpload.yaml](./yaml/APP_Distribution_Signature_index-uplog_FileUpload.yaml)）
-
+11. 新视窗新一代物业管理系统 GetprintData SQL注入漏洞（[New-see_Property_management_GetprintData_SQL_injected.yaml](./yaml/New-see_Property_management_GetprintData_SQL_injected.yaml)）
  ## 欢迎关注微信公众号：小明信安
 
 ![小明信安](./images/小明信安.png)

