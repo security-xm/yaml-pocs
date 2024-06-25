@@ -32,7 +32,6 @@ http:
     <?php phpinfo();?>
     ------WebKitFormBoundary03rNBzFMIytvpWhy--
 
-  condition: and
   max-redirects: 3
   matchers-condition: and
   matchers:
